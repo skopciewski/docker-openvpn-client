@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -eo pipefail
+[[ "$TRACE" ]] && set -x
+
+out() {
+  echo "** $@"
+}
+
+run_escape_to() {
+  exec "$@"
+}
+
+make_tun_device() {
+  mkdir -p /dev/net
+  if [ ! -c /dev/net/tun ]; then
+    out "Creating /dev/net/tun"
+    mknod /dev/net/tun c 10 200
+  fi
+}
+
+run_openvpn() {
+  make_tun_device
+  exec openvpn "$@"
+}
+
+main() {
+  case "$1" in
+  escto)
+    shift; run_escape_to "$@";;
+  *)
+    run_openvpn "$@";;
+  esac
+}
+
+main "$@"
