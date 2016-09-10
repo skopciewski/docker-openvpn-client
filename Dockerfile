@@ -4,7 +4,7 @@ RUN apk-install openvpn bash
 COPY data/entrypoint /entrypoint
 RUN chmod 755 /entrypoint
 
-ENV OPENVPN_HONE /opt/openvpn
+ENV OPENVPN_HOME /opt/openvpn
 VOLUME [${OPENVPN_HOME}]
 WORKDIR ${OPENVPN_HOME}
 
