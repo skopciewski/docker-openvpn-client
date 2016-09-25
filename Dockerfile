@@ -5,7 +5,6 @@ COPY data/entrypoint /entrypoint
 RUN chmod 755 /entrypoint
 
 ENV OPENVPN_HOME /mnt/openvpn
-VOLUME [${OPENVPN_HOME}]
 WORKDIR ${OPENVPN_HOME}
 
 ENTRYPOINT ["/entrypoint"]

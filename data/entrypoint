@@ -20,7 +20,7 @@ make_tun_device() {
 
 run_openvpn() {
   make_tun_device
-  exec openvpn "$@"
+  openvpn "$@"
 }
 
 main() {

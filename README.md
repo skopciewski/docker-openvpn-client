@@ -6,7 +6,7 @@
 
 ## Entrypoint
 
-Redirects all params to the `openvpn` command. Workdir is `/opt/openvpn`.
+Redirects all params to the `openvpn` command. Workdir is `/mnt/openvpn`.
 
 ### Default params
 
@@ -24,6 +24,6 @@ If you want to execute other command than `openvpn`, run docker container with `
 
 ## Dependencies and requirements
 
-* mount /opt/openvpn with:
+* mount /mnt/openvpn with:
   * client.conf - openvpn client config file
 
